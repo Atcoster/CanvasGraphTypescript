@@ -1,5 +1,5 @@
 import { IOptions } from '../interfaces/IOption';
-import { drawPieSlice } from '../../lib/helpers';
+import { drawPieSlice } from '../../lib/drawing';
 import { eColors } from '../enums/eColors';
 import { IColorSet } from '../interfaces/IColorSet';
 

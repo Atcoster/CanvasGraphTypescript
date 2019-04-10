@@ -3,58 +3,8 @@ import { eCategories } from '../models/enums/eCategories';
 import { eColors } from '../models/enums/eColors';
 import { IColorSet } from '@app/models/interfaces/IColorSet';
 
-export const drawPieSlice = (
-	ctx: CanvasRenderingContext2D,
-	centerX: number,
-	centerY: number,
-	radius: number,
-	startAngle: number,
-	endAngle: number,
-	color: string
-) => {
-	ctx.fillStyle = color;
-	ctx.beginPath();
-	ctx.moveTo(centerX, centerY);
-	ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-	ctx.closePath();
-	ctx.fill();
-};
-
-export const drawArc = (
-	ctx: CanvasRenderingContext2D,
-	centerX: number,
-	centerY: number,
-	radius: number,
-	startAngle: number,
-	endAngle: number,
-	color: string
-) => {
-	ctx.fillStyle = color;
-	ctx.beginPath();
-	ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-	ctx.fill();
-	ctx.closePath();
-};
-
-//Draw label
-export const drawLabels = (
-	ctx: CanvasRenderingContext2D,
-	label: string,
-	fontSize: number,
-	color: eColors,
-	labelX: number,
-	labelY: number
-) => {
-	ctx.textAlign = 'center';
-	const text = label.toUpperCase();
-
-	ctx.fillStyle = color;
-	ctx.font = `bold ${fontSize}px Arial`;
-	ctx.fillText(text, labelX, labelY);
-};
-
 //Get total from categories
-export const getTotal = (cat: ICategory[]): number => {
+export const getTotalFromCat = (cat: ICategory[]): number => {
 	const initialValue: number = 0;
 	const total = cat.reduce((accumulator, currentValue) => {
 		return accumulator + currentValue.value;

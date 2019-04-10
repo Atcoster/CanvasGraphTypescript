@@ -1,7 +1,7 @@
 import Canvas from './app/models/classes/Canvas';
 import DonutChart from './app/models/classes/DonutChart';
 import { Categories } from './app/mockdata/categories';
-import { getTotal, getColorsSet } from './app/lib/helpers';
+import { getTotalFromCat, getColorsSet } from './app/lib/helpers';
 import { IOptions } from './app/models/interfaces/IOption';
 import Label from './app/models/classes/Label';
 
@@ -13,7 +13,7 @@ const createChart = (canvasEl: HTMLCanvasElement) => {
 	const ctx: CanvasRenderingContext2D = canvas.getContext();
 	// const legend: string = 'EMPLOYEES';
 	const legend: string = 'Full-Stack Developer';
-	const total: number = getTotal(Categories);
+	const total: number = getTotalFromCat(Categories);
 
 	const defaultOptions: IOptions = {
 		centerX,
@@ -44,7 +44,7 @@ const createChart = (canvasEl: HTMLCanvasElement) => {
 		donutCharts.push(donutChart);
 	}
 
-	const label = new Label(ctx, legend.toLocaleUpperCase(), total, centerX, centerY);
+	const label = new Label(ctx, legend, total, centerX, centerY);
 	label.draw();
 };
 

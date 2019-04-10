@@ -1,4 +1,4 @@
-import { drawLabels } from '../../lib/helpers';
+import { drawLabels } from '../../lib/drawing';
 import { eColors } from '../enums/eColors';
 
 export default class Label {
