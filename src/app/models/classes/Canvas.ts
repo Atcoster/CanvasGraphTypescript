@@ -4,16 +4,24 @@ export default class Canvas {
 
 	constructor(canvasEl: HTMLCanvasElement) {
 		this.canvas = canvasEl;
-		this.ctx = this.canvas.getContext('2d');
-		this.canvas.height = window.innerHeight / 2;
+		this.ctx = canvasEl.getContext('2d');
 		this.canvas.width = window.innerWidth / 2;
+		this.canvas.height = window.innerHeight / 2;
 	}
 
-	getCanvas(): HTMLCanvasElement {
+	get Canvas(): HTMLCanvasElement {
 		return this.canvas;
 	}
 
-	getContext(): CanvasRenderingContext2D {
+	get Context(): CanvasRenderingContext2D {
 		return this.ctx;
+	}
+
+	get BoundingBox(): ClientRect | DOMRect {
+		return this.canvas.getBoundingClientRect();
+	}
+
+	clearCanvas() {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 }

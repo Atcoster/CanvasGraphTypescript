@@ -18,6 +18,12 @@ export const getColorsSet = (cat: ICategory): IColorSet => {
 	let colorSet: IColorSet;
 
 	switch (cat.name) {
+		case eCategories.BackOffice:
+			colorSet = {
+				arc: eColors.navy,
+				full: eColors.offgreen
+			};
+			break;
 		case eCategories.FrontEnd:
 			colorSet = {
 				arc: eColors.blue,
@@ -32,13 +38,14 @@ export const getColorsSet = (cat: ICategory): IColorSet => {
 			break;
 		case eCategories.FullStack:
 			colorSet = {
-				arc: eColors.paleRed,
-				full: eColors.lightRed
+				arc: eColors.lightRed,
+				full: eColors.paleRed
 			};
+			break;
 		case eCategories.FullStackJS:
 			colorSet = {
-				arc: eColors.navy,
-				full: eColors.lightBlue
+				arc: eColors.babyBlue,
+				full: eColors.veryLightBlue
 			};
 			break;
 		default:

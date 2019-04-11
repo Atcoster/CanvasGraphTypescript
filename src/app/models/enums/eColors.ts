@@ -3,6 +3,7 @@ export enum eColors {
 	blue = '#0080c5',
 	babyBlue = '#aedbf3',
 	veryLightBlue = '#dfeef4',
+	offgreen = '#597681',
 	lightBlue = '#9dddff',
 	paleBlue = '#f2f9fc',
 	red = '#ec1c24',

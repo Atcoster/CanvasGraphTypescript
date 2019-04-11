@@ -17,22 +17,6 @@ export const drawPieSlice = (
 	ctx.fill();
 };
 
-export const drawArc = (
-	ctx: CanvasRenderingContext2D,
-	centerX: number,
-	centerY: number,
-	radius: number,
-	startAngle: number,
-	endAngle: number,
-	color: string
-) => {
-	ctx.fillStyle = color;
-	ctx.beginPath();
-	ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-	ctx.fill();
-	ctx.closePath();
-};
-
 //Draw label
 export const drawLabels = (
 	ctx: CanvasRenderingContext2D,
@@ -43,11 +27,14 @@ export const drawLabels = (
 	labelY: number
 ) => {
 	const words: string[] = label.toLocaleUpperCase().split(' ');
+	const fSize: number = words.length < 3 ? fontSize : fontSize - 4;
 
 	ctx.textAlign = 'center';
 	ctx.fillStyle = color;
-	ctx.font = `bold ${fontSize}px Overpass`;
+	ctx.font = `bold ${fSize}px Overpass`;
 	words.forEach((word, index) => {
-		ctx.fillText(word, labelX, labelY + index * fontSize);
+		ctx.beginPath();
+		ctx.fillText(word, labelX, labelY + index * fSize);
+		ctx.closePath();
 	});
 };

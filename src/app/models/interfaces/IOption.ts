@@ -1,13 +1,10 @@
-import { ICategory } from '@app/models/interfaces/ICategory';
-import { IColorSet } from './IColorSet';
+import { ICategory } from '../../models/interfaces/ICategory';
+import Canvas from '../classes/Canvas';
 
 export interface IOptions {
-	centerX: number;
-	centerY: number;
+	canvas: Canvas;
 	context: CanvasRenderingContext2D;
-	total: number;
-	category: ICategory;
-	pos: number;
+	categories: ICategory[];
+	legend: string;
 	doughnutHoleSize?: number;
-	colorSet: IColorSet;
 }
