@@ -1,4 +1,4 @@
-import { eColors } from '@app/models/enums/eColors';
+import { eColors } from 'app/models/enums/eColors';
 
 export const drawPieSlice = (
 	ctx: CanvasRenderingContext2D,
