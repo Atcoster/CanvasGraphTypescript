@@ -19,6 +19,7 @@ export default class Chart {
 	private total: number;
 	private categories: ICategory[];
 	private doughnutHoleSize: number;
+	private twirl: boolean;
 
 	constructor(options: IOptions) {
 		this.canvas = options.canvas;
@@ -29,6 +30,7 @@ export default class Chart {
 		this.doughnutHoleSize = options.doughnutHoleSize;
 		this.centerX = options.canvas.Canvas.width / 2;
 		this.centerY = options.canvas.Canvas.height / 2;
+		this.twirl = options.twirl;
 	}
 
 	initialize() {
@@ -43,7 +45,8 @@ export default class Chart {
 				total: this.total,
 				centerX: this.centerX,
 				centerY: this.centerY,
-				colorSet: colorSet,
+				twirl: this.twirl,
+				colorSet,
 				index
 			};
 
@@ -76,7 +79,6 @@ export default class Chart {
 	//check if mouse is hovering object (a is mouse pos, b is object boundingbox)
 	mousePointerOnDonut() {
 		const mousePos: IPosition = this.mouse.Position;
-		let isHovering: boolean;
 
 		this.donuts.forEach((donut, index) => {
 			const donutBounding = donut.Bounding;
@@ -91,10 +93,8 @@ export default class Chart {
 				this.donuts[index].IsHovered = true;
 				this.label.Legend = donut.Legend;
 				this.label.Total = donut.Value;
-				isHovering = true;
 			} else {
 				this.donuts[index].IsHovered = false;
-				isHovering = false;
 			}
 			this.draw();
 		});
@@ -110,7 +110,6 @@ export default class Chart {
 				this.donuts[donut].draw(this.context);
 			}
 		}
-
 		this.label.draw(this.context);
 	}
 }

@@ -7,6 +7,7 @@ export interface IData {
 	centerX: number;
 	centerY: number;
 	index: number;
+	twirl: boolean;
 	colorSet: IColorSet;
 	total: number;
 }

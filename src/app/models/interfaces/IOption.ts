@@ -7,4 +7,5 @@ export interface IOptions {
 	categories: ICategory[];
 	legend: string;
 	doughnutHoleSize?: number;
+	twirl: boolean;
 }

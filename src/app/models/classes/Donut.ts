@@ -35,7 +35,7 @@ export default class Donut {
 		this.isHovered = false;
 		this.margin = 15;
 		this.doughnutHoleSize = data.doughnutHoleSize;
-		this.startAngle = Math.PI + this.index / 2;
+		this.startAngle = data.twirl ? Math.PI + this.index / 2 : Math.PI;
 		this.radius = Math.min(this.centerX, this.centerY);
 		this.fixedRadius = (this.doughnutHoleSize - this.index / 10) * this.radius;
 		this.slicePiece = this.PI2 * (this.value / this.catTotal);
@@ -44,10 +44,10 @@ export default class Donut {
 	draw(ctx: CanvasRenderingContext2D) {
 		const color = this.isHovered ? this.fullColor : this.defaultColor;
 
-		//Draw a pieSlice representing the total of all the categories (Employeees)
+		//Draw a pieSlice representing the total of all the categories (e.g Employeees)
 		drawPieSlice(ctx, this.centerX, this.centerY, this.fixedRadius, 0, this.PI2, color);
 
-		//Draw a pieSlice representing the total of the current category (Front-end)
+		//Draw a pieSlice representing the total of the current category (e.g Front-end)
 		drawPieSlice(
 			ctx,
 			this.centerX,

@@ -31,10 +31,10 @@ export const drawLabels = (
 
 	ctx.textAlign = 'center';
 	ctx.fillStyle = color;
-	ctx.font = `bold ${fSize}px Overpass`;
+	ctx.font = `bold ${fSize}px arial`;
+	ctx.beginPath();
 	words.forEach((word, index) => {
-		ctx.beginPath();
 		ctx.fillText(word, labelX, labelY + index * fSize);
-		ctx.closePath();
 	});
+	ctx.closePath();
 };

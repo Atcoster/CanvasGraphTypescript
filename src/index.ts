@@ -13,7 +13,8 @@ const init = () => {
 		context: ctx,
 		categories: Categories,
 		legend: 'EMPLOYEES',
-		doughnutHoleSize: 0.9
+		doughnutHoleSize: 0.9,
+		twirl: true
 	};
 
 	const chart = new Chart(defaultOptions);
